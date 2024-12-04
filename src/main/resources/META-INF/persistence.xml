@@ -1,23 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.2"
-             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
-             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+                                 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
     <persistence-unit name="gestioneEventi">
+        <class>com.example.Evento</class>  <!-- Aggiungi le classi che Hibernate deve scansionare -->
         <properties>
-            <!-- Configurazione del database e del server-->
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/gestioneEventi"/>
-            <!-- user del db-->
-            <property name="javax.persistence.jdbc.user" value="postgres"/>
-            <!-- password del db-->
-            <property name="javax.persistence.jdbc.password" value="asemota91"/>
-
-            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-            <property name="hibernate.default_schema" value="public"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/gestioneEventi"/>
+            <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+            <property name="jakarta.persistence.jdbc.password" value="fricchio29"/>
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-            <!-- questa opzione con create ricrea ad ogni lancio le tabelle, con update aggiunge solo le eventuali nuove tabelle fatte-->
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.show_sql" value="true"/> <!-- Per visualizzare le query SQL -->
         </properties>
     </persistence-unit>
-
 </persistence>

@@ -6,10 +6,9 @@ public class Main {
 
         EventoDAO eventoDAO = new EventoDAO();
         Faker faker = new Faker();
-        enum TipoEvento {
-            PUBBLICO,
-            PRIVATO
-        }
+
+
+
         // Crea e salva 10 eventi finti usando JavaFaker
         for (int i = 0; i < 10; i++) {
             Evento evento = new Evento(
@@ -18,7 +17,7 @@ public class Main {
                             faker.number().numberBetween(1, 12), // Mese finto
                             faker.number().numberBetween(1, 28)),  // Giorno finto
                     faker.lorem().sentence(),                        // Descrizione finta
-                    faker.options().option(TipoEvento.values()),     // Tipo evento (pubblico o privato)
+                    faker.options().option(Evento.TipoEvento.values()), // Tipo evento (pubblico o privato)
                     faker.number().numberBetween(50, 500)            // Numero massimo di partecipanti (finto)
             );
 

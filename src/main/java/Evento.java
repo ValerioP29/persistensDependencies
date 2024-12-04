@@ -1,19 +1,30 @@
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDate;
 
 @Entity
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
+@Getter
+@Setter
+
+@ToString
+@Table (name = "evento")
 public class Evento {
+
+    public Evento(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, int numeroMassimoPartecipanti) {
+        this.titolo = titolo;
+        this.dataEvento = dataEvento;
+        this.descrizione = descrizione;
+        this.tipoEvento = tipoEvento;
+        this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+private Long id;
 
     private String titolo;
 
@@ -26,8 +37,6 @@ public class Evento {
 
     private int numeroMassimoPartecipanti;
 
-    public <E> Evento(String title, LocalDate of, String sentence, E option, int i) {
-    }
 
     public enum TipoEvento {
         PUBBLICO,
